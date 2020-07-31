@@ -36,12 +36,6 @@ switch(randomNumber) {
   case 7:
     eightBall = 'Signs point to yes';
     break
-  case 8:
-    eightBall = 'It is nothing';
-    break
-  default:
-    eightBall = "";
-    break  
 }
 
 console.log(eightBall);
