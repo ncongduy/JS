@@ -13,7 +13,7 @@ function getAbsoluteDistance(a, b){
 }
 
 function compareGuesses(user, computer, secret) {
-  if(user > 10){
+  if(user > 10 || user < 0){
     alert("Your number is out of range. Please choose between 0 and 9.");
     return;
   }
