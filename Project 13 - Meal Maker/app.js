@@ -7,15 +7,33 @@ const menu = {
   get appetizers() {
     return this._course.appetizers;
   },
-  set appetizers(appetizerIn) {},
+  set appetizers(appetizerIn) {
+    if (typeof appetizerIn === "object") {
+      this._course.appetizers = appetizerIn;
+    } else {
+      console.log("You must type in object data.");
+    }
+  },
   get mains() {
     return this._course.mains;
   },
-  set mains(mainsIn) {},
+  set mains(mainsIn) {
+    if (typeof mainsIn === "object") {
+      this._course.mains = mainsIn;
+    } else {
+      console.log("You must type in object data.");
+    }
+  },
   get desserts() {
     return this._course.desserts;
   },
-  set desserts(dessertsIn) {},
+  set desserts(dessertsIn) {
+    if (typeof dessertsIn === "object") {
+      this._course.mains = dessertsIn;
+    } else {
+      console.log("You must type in object data.");
+    }
+  },
   get course() {
     return {
       appetizers: this.appetizers,
@@ -25,9 +43,9 @@ const menu = {
   },
   addDishToCourse(courseName, dishName, dishPrice) {
     if (
-      (courseName === "appetizers" && typeof dishPrice === 'number') ||
-      (courseName === "mains" && typeof dishPrice === 'number') ||
-      (courseName === "desserts" && typeof dishPrice === 'number')
+      (courseName === "appetizers" && typeof dishPrice === "number") ||
+      (courseName === "mains" && typeof dishPrice === "number") ||
+      (courseName === "desserts" && typeof dishPrice === "number")
     ) {
       const dish = {
         courseName,
@@ -36,7 +54,9 @@ const menu = {
       };
       return this.course[courseName].push(dish);
     } else {
-      return console.log("Please check dictation of course name or number of dish price again.");
+      return console.log(
+        "Please check dictation of course name or number of dish price again."
+      );
     }
   },
   getRandomDishFromCourse(courseName) {
@@ -82,3 +102,7 @@ menu.addDishToCourse("desserts", "Caesar 3", 6.55);
 
 let meal = menu.generateRandomMeal();
 console.log(meal);
+
+menu.appetizers = [1, 2, 3];
+menu.mains = [1, 2, 3];
+menu.desserts = [1, 2, 3];
